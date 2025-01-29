@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * Group 9: Ana Isakov, Chinmay Mashruwala, Jashandeep Singh
+ * PROG2070 Assignment 2
+ */
+
 namespace PROG2070_A2_Group9
 {
     public class Product
@@ -23,19 +28,28 @@ namespace PROG2070_A2_Group9
         /// <param name="stockAmount"></param>
         public Product(int prodID, string prodName, double itemPrice, int stockAmount)
         {
-            ProdID = prodID;
-            ProdName = prodName;
-            ItemPrice = itemPrice;
-            StockAmount = stockAmount;
+            if ((prodID >= 5 && prodID <= 50000) && (ItemPrice >= 5 && ItemPrice <= 5000) && (StockAmount >= 5 && StockAmount <= 500000))
+            {
+                ProdID = prodID;
+                ProdName = prodName;
+                ItemPrice = itemPrice;
+                StockAmount = stockAmount;
+            }
         }
 
         public void IncreaseStock(int amount)
         {
-            StockAmount += amount;
+            if (StockAmount + amount <= 500000)
+            {
+                StockAmount += amount;
+            }
         }
         public void DecreaseStock(int amount)
         {
-            StockAmount -= amount;
+            if (StockAmount - amount >= 5)
+            {
+                StockAmount -= amount;
+            }
         }
     }
 }
